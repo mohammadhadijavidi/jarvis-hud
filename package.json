@@ -1,0 +1,62 @@
+{
+  "name": "jarvis-hud",
+  "version": "0.1.0",
+  "description": "Cinematic browser HUD for voice AI assistants: mic-reactive neural core, live transcript, tool-call cards. Works with OpenAI Realtime or any WebSocket backend; ships a mock backend.",
+  "type": "module",
+  "license": "MIT",
+  "author": "Mohammad Hadi Javidi (https://github.com/mohammadhadijavidi)",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mohammadhadijavidi/jarvis-hud.git"
+  },
+  "keywords": [
+    "jarvis",
+    "voice-assistant",
+    "ai-agent",
+    "hud",
+    "openai-realtime",
+    "realtime-api",
+    "websocket",
+    "audio-visualizer",
+    "voice-ui",
+    "llm"
+  ],
+  "engines": {
+    "node": ">=20"
+  },
+  "bin": {
+    "jarvis-hud": "bin/jarvis-hud.mjs"
+  },
+  "files": [
+    "bin",
+    "dist",
+    "dist-server",
+    "README.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build && tsc -p tsconfig.server.json",
+    "start": "node bin/jarvis-hud.mjs serve",
+    "demo": "npm run build && node bin/jarvis-hud.mjs mock --open",
+    "mock": "tsx server/cli.ts mock",
+    "serve": "tsx server/cli.ts serve",
+    "relay": "tsx server/cli.ts relay",
+    "test": "vitest run",
+    "typecheck": "tsc --noEmit && tsc -p tsconfig.server.json --noEmit",
+    "screenshot": "python3 scripts/screenshot.py"
+  },
+  "dependencies": {
+    "ws": "^8.18.0"
+  },
+  "devDependencies": {
+    "@fontsource/chakra-petch": "^5.2.0",
+    "@fontsource/ibm-plex-sans": "^5.2.0",
+    "@types/node": "^22.10.0",
+    "@types/ws": "^8.5.13",
+    "tsx": "^4.19.0",
+    "typescript": "^5.7.0",
+    "vite": "^6.0.0",
+    "vitest": "^3.0.0"
+  }
+}
